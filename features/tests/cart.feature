@@ -12,4 +12,4 @@ Feature: cart tests
     And Click on search icon
     Then Product results for dress are shown
     When Click on add to card button
-#    Then Verify the item is added to the cart
+    Then Verify the item is added to the cart

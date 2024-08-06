@@ -5,3 +5,4 @@ Feature: Main page tests
     When Click Sign In and From right side navigation menu, click Sign In
     Then Verify Sign In form opened
 
+
