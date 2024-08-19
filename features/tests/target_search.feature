@@ -4,6 +4,7 @@ Feature: Test Scenarios for Search functionality
     Given Open target main page
     When Input car into search field and Click on search icon
     Then Product results for car are shown
+    Then Verify correct search URL opens for car
 
   Scenario: check if every product on Target search results page has a product name and a product image
     Given Open target main page

@@ -3,6 +3,8 @@ from pages.main_page import MainPage
 from pages.base_page import Page
 from pages.header import Header
 from pages.search_result_page import SearchResultPage
+from pages.sign_in_page import SignInPage
+
 
 class Application:
     def __init__(self, driver):
@@ -11,5 +13,6 @@ class Application:
         self.search_result_page = SearchResultPage(driver)
         self.page = Page(driver)
         self.cart_page = Cart(driver)
+        self.sign_in_page = SignInPage(driver)
 
 

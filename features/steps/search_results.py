@@ -5,7 +5,12 @@ from time import sleep
 
 @then('Product results for {search_word} are shown')
 def verify_found_results_text(context, search_word):
-    context.app.search_result_page.verify_text(search_word)
+    context.app.search_result_page.verify_search_result(search_word)
+
+@then ('Verify correct search URL opens for {search_word}')
+def verify_found_results_url(context, search_word):
+    context.app.search_result_page.verify_partial_url(search_word)
+
 
 @then('Verify that every product has a product name a product image')
 def verify_found_products_names_images(context):
