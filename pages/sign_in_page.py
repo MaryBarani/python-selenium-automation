@@ -9,7 +9,7 @@ class SignInPage(Page):
     PASSWORD_TXT = (By.CSS_SELECTOR, "input#password")
     SIGN_IN_BTN = (By.ID, "login")
     SIGN_IN_FORM = (By.CSS_SELECTOR, "form")
-
+    TC = (By.CSS_SELECTOR, "a[aria-label*='terms & conditions']")
     def verify_sign_in_text(self, expected_text):
         self.verify_text(self.SIGN_IN_TXT, expected_text)
 
@@ -22,3 +22,6 @@ class SignInPage(Page):
 
     def verify_user_is_logged_in(self):
         self.wait_until_element_disappearance(self.SIGN_IN_FORM)
+
+    def click_target_terms_and_conditions_link(self):
+        self.wait_and_click(self.TC)

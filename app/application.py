@@ -4,7 +4,7 @@ from pages.base_page import Page
 from pages.header import Header
 from pages.search_result_page import SearchResultPage
 from pages.sign_in_page import SignInPage
-
+from pages.TC_page import TCPage
 
 class Application:
     def __init__(self, driver):
@@ -14,5 +14,5 @@ class Application:
         self.page = Page(driver)
         self.cart_page = Cart(driver)
         self.sign_in_page = SignInPage(driver)
-
+        self.TCPage = TCPage(driver)
 

@@ -4,6 +4,7 @@ from time import sleep
 
 class Page:
     def __init__(self, driver):
+        self.original_window = None
         self.driver = driver
         self.wait = WebDriverWait(self.driver, 15)
 
@@ -19,6 +20,29 @@ class Page:
     def input_text(self, *locator, text):
         self.wait_until_element_appearance(locator)
         self.driver.find_element(*locator).send_keys(text)
+
+    def get_current_window(self):
+        original_window = self.driver.current_window_handle
+        return original_window
+
+    def store_original_window(self):
+        self.original_window = self.driver.current_window_handle
+        print(f"original window stored: {self.original_window}")
+
+    def switch_to_new_window(self):
+        self.wait.until(EC.new_window_is_opened)
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[1])
+
+    def switch_to_window_by_ID(self, window_Id):
+        self.driver.switch_to.window(window_Id)
+
+    def switch_to_original_window(self):
+        print(f"original window restored: {self.original_window}")
+        self.driver.switch_to.window(self.original_window)
+
+    def close_window(self):
+        self.driver.close()
 
     def open_url(self, url):
         self.driver.get(url)
@@ -64,3 +88,5 @@ class Page:
     def verify_partial_url(self, search_word):
         actual_url = self.driver.current_url
         assert search_word in actual_url, f"{search_word} is not in {actual_url}"
+
+
