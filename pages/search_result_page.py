@@ -1,3 +1,4 @@
+from selenium.webdriver.common.action_chains import  ActionChains
 from pages.base_page import Page
 from selenium.webdriver.common.by import By
 from time import sleep
@@ -11,6 +12,27 @@ class SearchResultPage(Page):
     ELEMENT = (By.CSS_SELECTOR, "button[data-test*='chooseOptionsButton'][id*=addToCartButton]")
     ADD_TO_CART = (By.CSS_SELECTOR, "button[data-test='shippingButton'][id*='addToCartButtonOrText']")
     CART_ELEMENT = (By.XPATH, "//a[contains(text(), 'View cart')]")
+    FAV_BTN = (By.CSS_SELECTOR, "button[data-test ='FavoritesButton']")
+    TOOL_TIP = (By.XPATH, "//*[text() ='Click to sign in and save']")
+
+    def hover_fav_icon(self):
+        self.wait_until_element_appearance(self.FAV_BTN)
+        fav_icon = self.find_element(*self.FAV_BTN)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(fav_icon)
+        # actions.click()
+        actions.perform()
+
+
+
+    def verify_fav_tooltip(self):
+        self.wait_until_element_appearance(self.TOOL_TIP)
+        tool_tip = self.find_element(*self.TOOL_TIP)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(tool_tip)
+        actions.perform()
+
+
 
     def verify_search_result(self, search_word):
         self.verify_partial_text(self.SEARCH_RESULT_TXT, search_word)

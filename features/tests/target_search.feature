@@ -10,3 +10,10 @@ Feature: Test Scenarios for Search functionality
     Given Open target main page
     When Input car into search field and Click on search icon
     Then Verify that every product has a product name a product image
+
+
+  Scenario: User can see favorite tooltip for search results
+    Given Open target main page
+    When Input tea into search field and Click on search icon
+    And Hover favorite icon
+    Then favorite tooltip is shown

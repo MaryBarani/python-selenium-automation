@@ -10,6 +10,7 @@ class SignInPage(Page):
     SIGN_IN_BTN = (By.ID, "login")
     SIGN_IN_FORM = (By.CSS_SELECTOR, "form")
     TC = (By.CSS_SELECTOR, "a[aria-label*='terms & conditions']")
+    NOT_LOGED_IN_TXT = (By.CSS_SELECTOR, "div[data-test= 'authAlertDisplay']")
     def verify_sign_in_text(self, expected_text):
         self.verify_text(self.SIGN_IN_TXT, expected_text)
 
@@ -25,3 +26,6 @@ class SignInPage(Page):
 
     def click_target_terms_and_conditions_link(self):
         self.wait_and_click(self.TC)
+
+    def verify_user_is_not_logged_in(self):
+        self.verify_partial_text(self.NOT_LOGED_IN_TXT,"find your account" )

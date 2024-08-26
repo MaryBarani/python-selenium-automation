@@ -21,3 +21,14 @@ def verify_found_products_names_images(context):
 def click_add_to_cart(context):
  context.app.search_result_page.click_add_to_cart_btn()
 
+
+@when("Hover favorite icon")
+def hover_favorite_icon(context):
+    context.app.search_result_page.hover_fav_icon()
+
+
+@then("favorite tooltip is shown")
+def verify_favorite_tooltip_is_shown(context):
+    context.app.search_result_page.verify_fav_tooltip()
+
+

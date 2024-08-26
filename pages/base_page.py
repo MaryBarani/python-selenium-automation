@@ -25,10 +25,6 @@ class Page:
         original_window = self.driver.current_window_handle
         return original_window
 
-    def store_original_window(self):
-        self.original_window = self.driver.current_window_handle
-        print(f"original window stored: {self.original_window}")
-
     def switch_to_new_window(self):
         self.wait.until(EC.new_window_is_opened)
         windows = self.driver.window_handles
@@ -36,10 +32,6 @@ class Page:
 
     def switch_to_window_by_ID(self, window_Id):
         self.driver.switch_to.window(window_Id)
-
-    def switch_to_original_window(self):
-        print(f"original window restored: {self.original_window}")
-        self.driver.switch_to.window(self.original_window)
 
     def close_window(self):
         self.driver.close()

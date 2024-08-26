@@ -10,3 +10,8 @@ Feature: Terms and condition tests
     And Switch to the newly opened window
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
+
+
+
+
+

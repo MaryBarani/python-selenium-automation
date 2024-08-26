@@ -11,4 +11,4 @@ def verify_terms_and_conditions(context):
 @then("User can close new window and switch back to original")
 def verify_user_can_go_back(context):
     context.app.TCPage.close_window()
-    context.app.sign_in_page.switch_to_original_window()
+    context.app.sign_in_page.switch_to_window_by_ID(context.original_window)
