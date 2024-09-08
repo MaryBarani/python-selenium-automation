@@ -1,6 +1,6 @@
 
 Feature: test caces for the sign in page
-
+  @smoke
   Scenario: Check if the  user can login with the correct credential
     Given Open target main page
     When Click Sign In
@@ -10,6 +10,7 @@ Feature: test caces for the sign in page
     When Click Sign In with password
     Then Verify user is logged in
 
+  @smoke
  Scenario: Check if website do not allow the user to login with incorrect credential
     Given Open target main page
     When Click Sign In
